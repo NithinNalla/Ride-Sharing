@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride Sharing App</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Ride Sharing App</h1>
+        
+        <% if (userId) { %>
+            <p>You are logged in as User ID: <%= userId %></p>
+            <a href="/logout" class="btn">Logout</a>
+        <% } else { %>
+            <a href="/login" class="btn">Login</a> | <a href="/register" class="btn">Register</a>
+        <% } %>
+        
+        <% if (userId) { %>
+            <h2>Offer a Ride</h2>
+            <form action="/offer-ride" method="POST">
+                <input type="hidden" name="user_id" value="<%= userId %>">
+                <label for="type">Vehicle Type:</label>
+                <input type="text" id="type" name="type" required>
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" required>
+                <label for="contact">Contact Number:</label>
+                <input type="text" id="contact" name="contact" required>
+                <label for="details">Details:</label>
+                <textarea id="details" name="details" required></textarea>
+                <button type="submit" class="btn">Offer Ride</button>
+            </form>
+        <% } %>
+
+        <h2>Available Rides</h2>
+        <a href="/rides" class="btn">View Rides</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offer a Ride</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Offer a Ride</h1>
+        <form action="/offer-ride" method="POST">
+            <input type="hidden" name="user_id" value="<%= userId %>">
+            <label for="type">Vehicle Type:</label>
+            <input type="text" id="type" name="type" required>
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" required>
+            <label for="contact">Contact Number:</label>
+            <input type="text" id="contact" name="contact" required>
+            <label for="details">Details:</label>
+            <textarea id="details" name="details" required></textarea>
+            <button type="submit" class="btn">Offer Ride</button>
+        </form>
+        <a href="/" class="btn">Go Back</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Rides</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Available Rides</h1>
+        <form action="/rides" method="GET">
+            <label for="type">Filter by Vehicle Type:</label>
+            <select name="type" id="type">
+                <option value="">All</option>
+                <option value="Car" <%= filterType && filterType.toLowerCase() === 'car' ? 'selected' : '' %>>Car</option>
+                <option value="Bike" <%= filterType && filterType.toLowerCase() === 'bike' ? 'selected' : '' %>>Bike</option>
+                <option value="Van" <%= filterType && filterType.toLowerCase() === 'van' ? 'selected' : '' %>>Van</option>
+                <option value="Auto" <%= filterType && filterType.toLowerCase() === 'auto' ? 'selected' : '' %>>Auto</option>
+                <option value="Truck" <%= filterType && filterType.toLowerCase() === 'truck' ? 'selected' : '' %>>Truck</option>
+                <option value="SUV" <%= filterType && filterType.toLowerCase() === 'suv' ? 'selected' : '' %>>SUV</option>
+                <!-- Add more options as needed -->
+            </select>
+            <button type="submit" class="btn">Filter</button>
+        </form>
+        <ul>
+            <% rides.forEach(ride => { %>
+                <li>
+                    <p>Ride ID: <%= ride.id %></p>
+                    <p>Vehicle Type: <%= ride.type %></p>
+                    <p>Price: <%= ride.price %></p>
+                    <p>Contact Number: <%= ride.contact %></p>
+                    <p>Details: <%= ride.details %></p>
+                </li>
+            <% }); %>
+        </ul>
+        <a href="/" class="btn">Go Back</a>
+    </div>
+</body>
+</html>
